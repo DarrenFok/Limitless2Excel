@@ -4,7 +4,7 @@ A script that converts a Limitless TCG link (specifically for Pokemon) to an .xl
 ## Script Usage
 To use the script, run the following command in a command terminal:
 
-`python limitless2excel.py <limitlesstcg.com link> <desired excel sheet name>`
+`python limitless2excel.py "<limitlesstcg.com link>" "<desired excel sheet name>"`
 
 This will create a `.xlsx` file that contains a checklist of the deck you are interested in from [limitlesstcg.com](https://limitlesstcg.com/).
 
