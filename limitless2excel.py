@@ -112,8 +112,8 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
     yellow_fill = PatternFill(start_color="ffff00", end_color="ffff00", fill_type="solid")
     ws[f"D{last_row+1}"].fill = yellow_fill
 
-    wb.save('deck.xlsx')
-    print("deck.xlsx created.")
+    wb.save(f'{deck_name}.xlsx')
+    print(f"{deck_name}.xlsx created.")
 
 def main():
     if len(sys.argv) < 2:
