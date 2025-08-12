@@ -1,6 +1,5 @@
 # This script takes a "limitlesstcg.com" deck link and converts it into a sheets/Excel file.
 # Makes it convenient for creating a checklist for required cards
-import sys
 import openpyxl
 import requests
 import pandas as pd
@@ -115,14 +114,7 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
     wb.save(f'{deck_name}.xlsx')
     print(f"{deck_name}.xlsx created.")
 
-def main():
-    if len(sys.argv) < 2:
-        print("Usage: python limitless2excel.py <url>")
-
-    url = sys.argv[1].strip()
-    deck_name = sys.argv[2].strip() if len(sys.argv) > 2 else "Deck"
+def convert(url: str, filename: str):
+    # deck_name = sys.argv[2].strip() if len(sys.argv) > 2 else "Deck"
     deck = get_deck(url)
-    export_dict_into_xlsx(deck, deck_name)
-
-if __name__ == '__main__':
-    main()
+    export_dict_into_xlsx(deck, filename)
