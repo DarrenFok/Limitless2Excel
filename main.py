@@ -107,9 +107,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     # transition handling functions
     def _start_to_directory(self):
         txt = self.page0.get_link()
+        # check for empty link box
         if not txt:
             QMessageBox.warning(self, "Warning", "No link provided")
             return
+
+        # check for link validity
+        if not txt.startswith("https://limitlesstcg.com/decks/list/"):
+            QMessageBox.warning(self, "Warning", "Link provided is not supported")
+            return
+
         self.state.link_text = txt
         self.page1.set_link_preview(txt)
         self.stackedWidget.setCurrentWidget(self.directorySelectPage)
