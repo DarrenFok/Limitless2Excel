@@ -91,6 +91,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.state = AppState()
 
+        self.setMinimumSize(750, 400)
+        self.setMaximumSize(750, 400)
+        self.setWindowFlags(
+            Qt.WindowType.Window
+            | Qt.WindowType.WindowTitleHint
+            | Qt.WindowType.WindowMinimizeButtonHint
+            | Qt.WindowType.WindowCloseButtonHint
+        )
+
         self.page0 = StartPage(self.startPage)
         self.page1 = DirectorySelectPage(self.directorySelectPage)
         self.page2 = ConfirmationPage(self.confirmationPage)
