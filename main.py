@@ -3,7 +3,7 @@ from dataclasses import dataclass
 from PySide6.QtWidgets import QApplication, QMainWindow, QStackedWidget, QWidget, QPushButton, QLineEdit, QLabel, \
     QMessageBox, QFileDialog
 from PySide6.QtCore import Qt, QUrl, Signal
-from app_ui import Ui_MainWindow
+from app_ui import Ui_mainWindow
 from limitless2excel import convert
 from pathlib import Path
 
@@ -85,20 +85,16 @@ class ConfirmationPage:
         if self.closeProgramButton:
             self.closeProgramButton.clicked.connect(slot)
 
-class MainWindow(QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_mainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.setWindowFlag(Qt.WindowType.FramelessWindowHint)
+        self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.state = AppState()
 
         self.setMinimumSize(750, 400)
         self.setMaximumSize(750, 400)
-        self.setWindowFlags(
-            Qt.WindowType.Window
-            | Qt.WindowType.WindowTitleHint
-            | Qt.WindowType.WindowMinimizeButtonHint
-            | Qt.WindowType.WindowCloseButtonHint
-        )
 
         self.page0 = StartPage(self.startPage)
         self.page1 = DirectorySelectPage(self.directorySelectPage)
@@ -112,6 +108,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.page2.on_close(self.close)
 
         self.stackedWidget.setCurrentWidget(self.startPage)
+
+        self.titleBar.findChild(QPushButton, "closeButton").clicked.connect(self.close)
+        self.titleBar.findChild(QPushButton, "minimizeButton").clicked.connect(self.showMinimized)
+
+        self.titleBar.mousePressEvent = self.title_bar_mouse_press
+        self.titleBar.mouseMoveEvent = self.title_bar_mouse_move
+        self.titleBar.mouseReleaseEvent = self.title_bar_mouse_release
+
+        self._old_pos = None
+
+    def title_bar_mouse_press(self, event):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self._old_pos = event.globalPosition().toPoint()
+
+    def title_bar_mouse_move(self, event):
+        if self._old_pos is not None:
+            delta = event.globalPosition().toPoint() - self._old_pos
+            self.move(self.x() + delta.x(), self.y() + delta.y())
+            self._old_pos = event.globalPosition().toPoint()
+
+    def title_bar_mouse_release(self, event):
+        self._old_pos = None
 
     # transition handling functions
     def _start_to_directory(self):
