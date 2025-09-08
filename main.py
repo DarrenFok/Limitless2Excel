@@ -47,8 +47,13 @@ class DirectorySelectPage:
             self.linkHyperEdit.setTextFormat(Qt.TextFormat.RichText)
             self.linkHyperEdit.setOpenExternalLinks(True)
             display = html.escape(url.toDisplayString())
+
+            # remove formatting
+            if display.startswith("file:"):
+                display = display.replace("file:", "")
+
             href = url.toString(QUrl.ComponentFormattingOption.FullyEncoded)
-            self.linkHyperEdit.setText(f'<a href="{href}">{display}</a>')
+            self.linkHyperEdit.setText(f'<a href="{href}" style="color:white;" >{html.escape(display)}</a>')
         else:
             self.linkHyperEdit.setText(f'<i>(No valid link provided)<i>')
 
@@ -109,9 +114,11 @@ class MainWindow(QMainWindow, Ui_mainWindow):
 
         self.stackedWidget.setCurrentWidget(self.startPage)
 
+        # assign custom title bar button actions
         self.titleBar.findChild(QPushButton, "closeButton").clicked.connect(self.close)
         self.titleBar.findChild(QPushButton, "minimizeButton").clicked.connect(self.showMinimized)
 
+        # assign drag and drop capabilities for custom title bar
         self.titleBar.mousePressEvent = self.title_bar_mouse_press
         self.titleBar.mouseMoveEvent = self.title_bar_mouse_move
         self.titleBar.mouseReleaseEvent = self.title_bar_mouse_release
@@ -171,7 +178,7 @@ def main():
     w = MainWindow()
     w.resize(771, 341)
     w.show()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
 
 if __name__ == "__main__":
     main()
