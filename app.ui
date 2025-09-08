@@ -77,6 +77,10 @@ color: rgb(255, 255, 255);
 color: rgb(255, 255, 255);
 background-color: rgb(89, 89, 89);
 border-radius: 13px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
     </property>
     <property name="text">
@@ -97,6 +101,10 @@ border-radius: 13px;
 color: rgb(255, 255, 255);
 background-color: rgb(89, 89, 89);
 border-radius: 13px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
     </property>
     <property name="text">
@@ -117,7 +125,7 @@ border-radius: 13px;
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="startPage">
     <property name="styleSheet">
@@ -218,6 +226,10 @@ background-color: #2a2a2a;
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
      </property>
      <property name="text">
@@ -333,6 +345,10 @@ color: rgb(255, 255, 255)
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
         </property>
         <property name="text">
@@ -360,6 +376,10 @@ color: rgb(255, 255, 255)
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
         </property>
         <property name="text">
@@ -504,6 +524,10 @@ color: #ffffff
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
           </property>
           <property name="text">
@@ -530,6 +554,10 @@ color: #ffffff
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
+}
+
+QPushButton:hover{
+background-color: rgb(62, 62, 62);
 }</string>
           </property>
           <property name="text">
