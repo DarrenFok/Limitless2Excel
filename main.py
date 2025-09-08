@@ -167,7 +167,11 @@ class MainWindow(QMainWindow, Ui_mainWindow):
         else:
             return
         deck_name = Path(filename).stem
-        convert(self.state.link_text, deck_name)  # call conversion function from limitless2excel.py
+        try:
+            convert(self.state.link_text, deck_name)  # call conversion function from limitless2excel.py
+        except PermissionError as e:
+            QMessageBox.warning(self, "Error", "Permission error! Please close any opened deck lists of the same name.")
+            return
 
         self.state.save_path = filename
         self.page2.set_directory_preview(self.state.save_path)
