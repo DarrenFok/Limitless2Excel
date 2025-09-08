@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>750</width>
-    <height>411</height>
+    <width>785</width>
+    <height>440</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -29,7 +29,11 @@ border-radius: 16px;
    </property>
    <property name="styleSheet">
     <string notr="true">QWidget{
-background-color: #2a2a2a;
+background-color: rgb(17, 17, 17);
+border-top-left-radius: 16px;
+border-top-right-radius: 16px;
+border-bottom-left-radius: 0px;
+border-bottom-right-radius: 0px;
 }</string>
    </property>
    <widget class="QLabel" name="windowName">
@@ -38,7 +42,7 @@ background-color: #2a2a2a;
       <x>300</x>
       <y>10</y>
       <width>151</width>
-      <height>16</height>
+      <height>21</height>
      </rect>
     </property>
     <property name="font">
@@ -124,8 +128,8 @@ background-color: #2a2a2a;
     <widget class="QLabel" name="programTitle">
      <property name="geometry">
       <rect>
-       <x>190</x>
-       <y>50</y>
+       <x>200</x>
+       <y>80</y>
        <width>361</width>
        <height>61</height>
       </rect>
@@ -152,8 +156,8 @@ background-color: #2a2a2a;
     <widget class="QLabel" name="linkPrompt">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>170</y>
+       <x>30</x>
+       <y>230</y>
        <width>171</width>
        <height>21</height>
       </rect>
@@ -180,24 +184,26 @@ background-color: #2a2a2a;
     <widget class="QLineEdit" name="linkField">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>160</y>
+       <x>210</x>
+       <y>220</y>
        <width>421</width>
        <height>31</height>
       </rect>
      </property>
      <property name="styleSheet">
       <string notr="true">QLineEdit{
+	color: rgb(255, 255, 255);
 	background-color: rgb(62, 62, 62);
 	border-radius: 12px;
+	padding-left: 5px;
 }</string>
      </property>
     </widget>
     <widget class="QPushButton" name="confirmButton">
      <property name="geometry">
       <rect>
-       <x>630</x>
-       <y>160</y>
+       <x>640</x>
+       <y>220</y>
        <width>81</width>
        <height>31</height>
       </rect>
@@ -221,8 +227,8 @@ background-color: #2a2a2a;
     <widget class="QLabel" name="subtitle">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>120</y>
+       <x>160</x>
+       <y>150</y>
        <width>441</width>
        <height>21</height>
       </rect>
@@ -276,136 +282,164 @@ background-color: #2a2a2a;
 background-color: #2a2a2a;
 }</string>
     </property>
-    <widget class="QLabel" name="currentLinkTitle">
+    <widget class="QWidget" name="horizontalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>60</y>
-       <width>201</width>
-       <height>41</height>
+       <x>200</x>
+       <y>220</y>
+       <width>351</width>
+       <height>31</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color: #ffffff
-}</string>
-     </property>
-     <property name="text">
-      <string>Current LimitlessTCG Link:</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QLabel" name="confirmLabel">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>60</y>
-       <width>461</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>10</pointsize>
-       <italic>true</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color: rgb(255, 255, 255);
-}</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="saveInPrompt">
-     <property name="geometry">
-      <rect>
-       <x>230</x>
-       <y>150</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>14</pointsize>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="saveInPrompt">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>14</pointsize>
+          <italic>false</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
 color: rgb(255, 255, 255)
 }</string>
-     </property>
-     <property name="text">
-      <string>Save As:</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="browseButton">
-     <property name="geometry">
-      <rect>
-       <x>310</x>
-       <y>140</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
+        </property>
+        <property name="text">
+         <string>Save As:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="browseButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
 }</string>
-     </property>
-     <property name="text">
-      <string>Browse</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="cancelButton">
-     <property name="geometry">
-      <rect>
-       <x>430</x>
-       <y>140</y>
-       <width>111</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
+        </property>
+        <property name="text">
+         <string>Browse</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="cancelButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+          <italic>false</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton {
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
 }</string>
+        </property>
+        <property name="text">
+         <string>Cancel</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>150</y>
+       <width>521</width>
+       <height>31</height>
+      </rect>
      </property>
-     <property name="text">
-      <string>Cancel</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="currentLinkTitle">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>12</pointsize>
+          <italic>false</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: #ffffff
+}</string>
+        </property>
+        <property name="text">
+         <string>Current LimitlessTCG Link:</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="confirmLabel">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: rgb(255, 255, 255);
+link: rgb(255, 255, 255);
+visited: rgb(255, 255, 255);
+background-color: rgb(62, 62, 62);
+border-radius: 12px;
+}</string>
+        </property>
+        <property name="text">
+         <string>&quot;&lt;a style=&quot;color:white; text-decoration:none;&quot;&gt;Click Me&lt;/a&gt;&quot;</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::RichText</enum>
+        </property>
+        <property name="indent">
+         <number>5</number>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
    <widget class="QWidget" name="confirmationPage">
@@ -414,133 +448,165 @@ color: rgb(255, 255, 255)
 background-color: #2a2a2a;
 }</string>
     </property>
-    <widget class="QLabel" name="savedToPrompt">
+    <widget class="QWidget" name="verticalLayoutWidget">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>70</y>
-       <width>261</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>12</pointsize>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color: #ffffff
-}</string>
-     </property>
-     <property name="text">
-      <string>Deck .xlsx file successfully saved to:</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="directoryEdit">
-     <property name="geometry">
-      <rect>
-       <x>290</x>
-       <y>69</y>
-       <width>421</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>10</pointsize>
-       <italic>true</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color: #ffffff;
-}</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="whatNextPrompt">
-     <property name="geometry">
-      <rect>
-       <x>240</x>
-       <y>140</y>
-       <width>281</width>
-       <height>41</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <pointsize>14</pointsize>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QLabel{
-color: #ffffff
-}</string>
-     </property>
-     <property name="text">
-      <string>What would you like to do next?</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignmentFlag::AlignCenter</set>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="createAnotherButton">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
+       <x>160</x>
        <y>190</y>
-       <width>201</width>
-       <height>31</height>
+       <width>431</width>
+       <height>81</height>
       </rect>
      </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_9">
+        <item>
+         <widget class="QLabel" name="whatNextPrompt">
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <pointsize>14</pointsize>
+            <italic>false</italic>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel{
+color: #ffffff
+}</string>
+          </property>
+          <property name="text">
+           <string>What would you like to do next?</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_11">
+        <item>
+         <widget class="QPushButton" name="createAnotherButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
 }</string>
-     </property>
-     <property name="text">
-      <string>Create another .xlsx deck checklist</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="closeProgramButton">
-     <property name="geometry">
-      <rect>
-       <x>420</x>
-       <y>190</y>
-       <width>131</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <family>Roboto</family>
-       <italic>false</italic>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">QPushButton {
+          </property>
+          <property name="text">
+           <string>Create another .xlsx deck checklist</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="closeProgramButton">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Roboto</family>
+            <italic>false</italic>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
 	background-color: rgb(89, 89, 89);
 	color: #ffffff;
 	border-radius: 10px;
 }</string>
+          </property>
+          <property name="text">
+           <string>Close Program</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>691</width>
+       <height>31</height>
+      </rect>
      </property>
-     <property name="text">
-      <string>Close Program</string>
-     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_12">
+      <item>
+       <widget class="QLabel" name="savedToPrompt">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: #ffffff
+}</string>
+        </property>
+        <property name="text">
+         <string>Deck .xlsx file successfully saved to:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="directoryEdit">
+        <property name="font">
+         <font>
+          <family>Roboto</family>
+          <pointsize>10</pointsize>
+          <italic>true</italic>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QLabel{
+color: rgb(255, 255, 255);
+link: rgb(255, 255, 255);
+background-color: rgb(62, 62, 62);
+border-radius: 12px;
+}</string>
+        </property>
+        <property name="text">
+         <string>TextLabel</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+        <property name="indent">
+         <number>5</number>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::LinksAccessibleByKeyboard|Qt::TextInteractionFlag::LinksAccessibleByMouse|Qt::TextInteractionFlag::TextBrowserInteraction|Qt::TextInteractionFlag::TextSelectableByKeyboard|Qt::TextInteractionFlag::TextSelectableByMouse</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </widget>
    </widget>
   </widget>
