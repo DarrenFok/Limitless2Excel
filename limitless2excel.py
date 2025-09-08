@@ -27,8 +27,9 @@ def get_deck(url):
             card_counts = column.xpath('.//span[contains(@class, "card-count")]/text()')
             card_names = column.xpath('.//span[contains(@class, "card-name")]/text()')
             expansions = column.xpath('.//div[contains(@class, "decklist-card")]/@data-set')
+            prices = column.xpath('.//a[contains(@class, "card-price usd")]/text()')
 
-            column_data = convert_deck_to_dict(card_counts, card_names, expansions)
+            column_data = convert_deck_to_dict(card_counts, card_names, expansions, prices)
             deck_data.append(column_data)
 
     return {
@@ -36,7 +37,7 @@ def get_deck(url):
         "cards": deck_data
     }
 
-def convert_deck_to_dict(counts, names, expansions):
+def convert_deck_to_dict(counts, names, expansions, prices):
     """
     Converts list of cards to dict
     :param counts: List of numbers for each type of card
@@ -45,9 +46,12 @@ def convert_deck_to_dict(counts, names, expansions):
     :return: dict containing deck list
     """
     new_dict = dict()
-    for count, name, expansion in zip(counts, names, expansions):
+    for count, name, expansion, price in zip(counts, names, expansions, prices):
         try:
-            new_dict[f"{name.strip()} ({expansion.strip()})"] = int(count.strip())
+            new_dict[f"{name.strip()} ({expansion.strip()})"] = {
+                "Count": int(count.strip()),
+                "Price": price.strip()
+            }
         except ValueError:
             continue
     return new_dict
@@ -63,10 +67,10 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
     # for key, values in data.items():
     for category in data["cards"]:
         for key, value in category.items():
-            rows.append([key, value, 0, f"=IF(OR(B{len(rows) + 2}=\"\", C{len(rows) + 2}=\"\"), \"\", B{len(rows) + 2}-C{len(rows) + 2})"])
+            rows.append([key, value["Price"], value["Count"], 0, f"=IF(OR(C{len(rows) + 2}=\"\", D{len(rows) + 2}=\"\"), \"\", C{len(rows) + 2}-D{len(rows) + 2})"])
         rows.append([None, None, None, None])
 
-    df = pd.DataFrame(rows, columns=["Card Name", "Quantity Needed", "Amount Have", "Remaining"])
+    df = pd.DataFrame(rows, columns=["Card Name", "Market Price (USD)", "Quantity Needed", "Amount Have", "Remaining"])
 
     wb = openpyxl.Workbook()
     ws = wb.active
@@ -77,7 +81,7 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
         ws.append(row)
 
     last_row = len(df) + 1  # +1 for header row, +1 to account for 1-based indexing
-    ws.append(["# remaining cards", "", "", f"=SUM(D2:D{last_row - 1})"])
+    ws.append(["# remaining cards", "", "", f"=SUM(E2:E{last_row - 1})"])
     ws.append([f"{data['url']}", "", "", ""])
 
     # Adjust column width based on data size
@@ -101,12 +105,12 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
 
     # Apply conditional formatting only if the cell is not empty
     ws.conditional_formatting.add(
-        f"D2:D{last_row - 1}",
-        FormulaRule(formula=["AND(ISNUMBER(D2), D2<=0)"], fill=green_fill)
+        f"E2:E{last_row - 1}",
+        FormulaRule(formula=["AND(ISNUMBER(E2), E2<=0)"], fill=green_fill)
     )
     ws.conditional_formatting.add(
-        f"D2:D{last_row - 1}",
-        FormulaRule(formula=["AND(ISNUMBER(D2), D2>0)"], fill=red_fill)
+        f"E2:E{last_row - 1}",
+        FormulaRule(formula=["AND(ISNUMBER(E2), E2>0)"], fill=red_fill)
     )
 
     # Highlight the sum cell in yellow
