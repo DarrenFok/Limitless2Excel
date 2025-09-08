@@ -17,7 +17,8 @@ This will create a `.xlsx` file that contains a checklist of the deck you are in
 To use the Excel sheet, please edit the "amount have" column. Editing the "remaining" column's cells will remove the existing formula used to
 calculate the amount of cards remaining. 
 
-![image](https://github.com/user-attachments/assets/017ca642-0de4-48c0-aee9-b2318da56eaf)
+<img width="687" height="657" alt="image" src="https://github.com/user-attachments/assets/4274a8a3-8d78-4a42-b630-5f24aecd9424" />
+
 
 Once the amount of cards needed is input into the "amount have" cell, the same row's "remaining" cell will turn green, indicating that the amount has been collected.
 
