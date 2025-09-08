@@ -26,8 +26,9 @@ def get_deck(url):
         else:
             card_counts = column.xpath('.//span[contains(@class, "card-count")]/text()')
             card_names = column.xpath('.//span[contains(@class, "card-name")]/text()')
+            expansions = column.xpath('.//div[contains(@class, "decklist-card")]/@data-set')
 
-            column_data = convert_deck_to_dict(card_counts, card_names)
+            column_data = convert_deck_to_dict(card_counts, card_names, expansions)
             deck_data.append(column_data)
 
     return {
@@ -35,17 +36,18 @@ def get_deck(url):
         "cards": deck_data
     }
 
-def convert_deck_to_dict(counts, names):
+def convert_deck_to_dict(counts, names, expansions):
     """
     Converts list of cards to dict
     :param counts: List of numbers for each type of card
     :param names: List of names for each type of card
+    :param expansions: List of expansions for each type of card
     :return: dict containing deck list
     """
     new_dict = dict()
-    for count, name in zip(counts, names):
+    for count, name, expansion in zip(counts, names, expansions):
         try:
-            new_dict[name.strip()] = int(count.strip())
+            new_dict[f"{name.strip()} ({expansion.strip()})"] = int(count.strip())
         except ValueError:
             continue
     return new_dict
@@ -118,3 +120,8 @@ def convert(url: str, filename: str):
     # deck_name = sys.argv[2].strip() if len(sys.argv) > 2 else "Deck"
     deck = get_deck(url)
     export_dict_into_xlsx(deck, filename)
+
+if __name__ == '__main__':
+    url = "https://limitlesstcg.com/decks/list/18922"
+    convert(url, "DeckList.xlsx")
+
