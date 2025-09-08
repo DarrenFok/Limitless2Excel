@@ -4,7 +4,6 @@ import openpyxl
 import requests
 import pandas as pd
 from lxml import html
-from numpy.f2py.auxfuncs import throw_error
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import PatternFill
 from openpyxl.utils.dataframe import dataframe_to_rows
