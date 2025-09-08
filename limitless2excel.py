@@ -4,6 +4,7 @@ import openpyxl
 import requests
 import pandas as pd
 from lxml import html
+from numpy.f2py.auxfuncs import throw_error
 from openpyxl.formatting.rule import FormulaRule
 from openpyxl.styles import PatternFill
 from openpyxl.utils.dataframe import dataframe_to_rows
@@ -113,8 +114,13 @@ def export_dict_into_xlsx(data, deck_name="Deck"):
     yellow_fill = PatternFill(start_color="ffff00", end_color="ffff00", fill_type="solid")
     ws[f"D{last_row+1}"].fill = yellow_fill
 
-    wb.save(f'{deck_name}.xlsx')
-    print(f"{deck_name}.xlsx created.")
+    # Error check for whether file can be closed
+    try:
+        wb.save(f'{deck_name}.xlsx')
+    except PermissionError as e:
+        raise e
+    else:
+        print(f"{deck_name}.xlsx created.")
 
 def convert(url: str, filename: str):
     # deck_name = sys.argv[2].strip() if len(sys.argv) > 2 else "Deck"
