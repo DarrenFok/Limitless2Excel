@@ -272,7 +272,7 @@ background-color: #2a2a2a;
 }</string>
      </property>
      <property name="text">
-      <string>Version 0.2.0-beta.1</string>
+      <string>Version 0.1.0-beta.2</string>
      </property>
     </widget>
    </widget>
