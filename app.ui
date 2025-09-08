@@ -125,7 +125,7 @@ background-color: rgb(62, 62, 62);
     <string notr="true"/>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="startPage">
     <property name="styleSheet">
@@ -284,7 +284,7 @@ background-color: rgb(62, 62, 62);
 }</string>
      </property>
      <property name="text">
-      <string>Version 0.1.0-beta.2</string>
+      <string>Version 0.1.0-beta.3</string>
      </property>
     </widget>
    </widget>

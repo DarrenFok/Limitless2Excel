@@ -369,7 +369,7 @@ class Ui_mainWindow(object):
 
         self.retranslateUi(mainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(mainWindow)
@@ -384,7 +384,7 @@ class Ui_mainWindow(object):
         self.linkPrompt.setText(QCoreApplication.translate("mainWindow", u"Limitless TCG Link:", None))
         self.confirmButton.setText(QCoreApplication.translate("mainWindow", u"Confirm", None))
         self.subtitle.setText(QCoreApplication.translate("mainWindow", u"An automatic .xlsx sheet generator for LimitlessTCG decklists", None))
-        self.versionNumber.setText(QCoreApplication.translate("mainWindow", u"Version 0.1.0-beta.2", None))
+        self.versionNumber.setText(QCoreApplication.translate("mainWindow", u"Version 0.1.0-beta.3", None))
         self.saveInPrompt.setText(QCoreApplication.translate("mainWindow", u"Save As:", None))
         self.browseButton.setText(QCoreApplication.translate("mainWindow", u"Browse", None))
         self.cancelButton.setText(QCoreApplication.translate("mainWindow", u"Cancel", None))
