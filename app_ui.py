@@ -55,6 +55,10 @@ class Ui_mainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(89, 89, 89);\n"
 "border-radius: 13px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
         self.minimizeButton = QPushButton(self.titleBar)
         self.minimizeButton.setObjectName(u"minimizeButton")
@@ -63,6 +67,10 @@ class Ui_mainWindow(object):
 "color: rgb(255, 255, 255);\n"
 "background-color: rgb(89, 89, 89);\n"
 "border-radius: 13px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
         self.stackedWidget = QStackedWidget(mainWindow)
         self.stackedWidget.setObjectName(u"stackedWidget")
@@ -116,6 +124,10 @@ class Ui_mainWindow(object):
 "	background-color: rgb(89, 89, 89);\n"
 "	color: #ffffff;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
         self.subtitle = QLabel(self.startPage)
         self.subtitle.setObjectName(u"subtitle")
@@ -172,6 +184,10 @@ class Ui_mainWindow(object):
 "	background-color: rgb(89, 89, 89);\n"
 "	color: #ffffff;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
 
         self.horizontalLayout_3.addWidget(self.browseButton)
@@ -192,6 +208,10 @@ class Ui_mainWindow(object):
 "	background-color: rgb(89, 89, 89);\n"
 "	color: #ffffff;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
 
         self.horizontalLayout_3.addWidget(self.cancelButton)
@@ -277,6 +297,10 @@ class Ui_mainWindow(object):
 "	background-color: rgb(89, 89, 89);\n"
 "	color: #ffffff;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
 
         self.horizontalLayout_11.addWidget(self.createAnotherButton)
@@ -290,6 +314,10 @@ class Ui_mainWindow(object):
 "	background-color: rgb(89, 89, 89);\n"
 "	color: #ffffff;\n"
 "	border-radius: 10px;\n"
+"}\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: rgb(62, 62, 62);\n"
 "}")
 
         self.horizontalLayout_11.addWidget(self.closeProgramButton)
@@ -341,7 +369,7 @@ class Ui_mainWindow(object):
 
         self.retranslateUi(mainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(mainWindow)
